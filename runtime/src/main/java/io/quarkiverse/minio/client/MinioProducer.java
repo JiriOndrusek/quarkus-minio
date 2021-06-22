@@ -21,6 +21,9 @@ public class MinioProducer {
     @Produces
     @Singleton
     public MinioClient produceMinioClient() {
+        if (configuration.isEmpty()) {
+            return null;
+        }
         verifyUrl();
         return MinioClient.builder()
                 .endpoint(configuration.getUrl())

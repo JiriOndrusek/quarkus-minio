@@ -49,4 +49,8 @@ public class MinioConfiguration {
     String getSecretKey() {
         return secretKey.orElse("");
     }
+
+    boolean isEmpty() {
+        return !url.isPresent() && !accessKey.isPresent() && !secretKey.isPresent();
+    }
 }
